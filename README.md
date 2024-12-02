@@ -52,7 +52,7 @@ Na start dostępny jest użytkownik administracyjny:
 
 ### 1. Kalkulacja
 
-```http
+```bash
   POST /api/calculation
 ```
 
@@ -71,13 +71,13 @@ Na start dostępny jest użytkownik administracyjny:
 
 ### 2. Wykluczenie Obliczenia
 
-```http
+```bash
   PUT /api/exclude
 ```
 
 #### Wymagana autoryzacja
 
-```http
+```bash
   Authorization: Bearer <token_jwt>
 ```
 
@@ -97,13 +97,13 @@ Na start dostępny jest użytkownik administracyjny:
 
 ### 3. Pobierz ostatnie 4 obliczenia
 
-```http
+```bash
   GET /api/calculations
 ```
 
 #### Wymagana autoryzacja
 
-```http
+```bash
   Authorization: Bearer <token_jwt>
 ```
 
