@@ -119,7 +119,7 @@ Na start dostępny jest użytkownik administracyjny:
 
 ### 4. Pobierz ostatnie 4 obliczenia
 
-```http
+```bash
   GET /api/calculations
 ```
 
