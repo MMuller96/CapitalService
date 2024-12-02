@@ -16,6 +16,24 @@ class CalculationRepository extends ServiceEntityRepository
         parent::__construct($registry, Calculation::class);
     }
 
+    public function getTop4(bool $excluded): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = "
+            SELECT c.*
+            FROM calculation c, jsonb_array_elements(c.schedule::jsonb) AS schedule_item
+            WHERE c.excluded = :val
+            GROUP BY c.id
+            ORDER BY SUM((schedule_item->>'interest')::numeric) DESC
+            LIMIT 4
+        ";
+
+        $stmt = $conn->executeQuery($sql, ['val' => (int)$excluded]);
+
+        return $stmt->fetchAllAssociative();
+    }
+
     //    /**
     //     * @return Calculation[] Returns an array of Calculation objects
     //     */

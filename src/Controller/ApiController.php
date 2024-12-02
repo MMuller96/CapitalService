@@ -73,19 +73,26 @@ class ApiController extends AbstractController
         return new JsonResponse(['message' => 'Calculation nr.' . $id . ' excluded succesfully']);
     }
 
-    #[Route('/api/calculations', name: 'api_calculations', methods: ['GET'])]
+    #[Route('/api/bash', name: 'api_calculations', methods: ['GET'])]
     public function calculations(Request $request): JsonResponse
     {
         $filter = $request->query->get('filter');
-        $result = [];
+        $result = $this->calculationRepository->getTop4($filter === 'excluded');
+        $data = [];
 
-        if($filter === 'excluded') $result = $this->calculationRepository->findBy(['excluded' => true]);
-        else $result = $this->calculationRepository->findAll();
+        foreach($result as $row)
+        {
+            $data[] = [
+                'id' => $row['id'],
+                'amount' => $row['amount'],
+                'installments' => $row['installments'],
+                'interest_rate' => $row['interest_rate'],
+                'created_at' => $row['created_at'],
+                'excluded' => $row['excluded'],
+                'schedule' => json_decode($row['schedule']),
+            ];
+        }
 
-        $serializedReslut = array_map(function ($calculation) {
-            return $calculation->__serialize();
-        }, $result);
-
-        return new JsonResponse($serializedReslut);
+        return new JsonResponse($data);
     }
 }
