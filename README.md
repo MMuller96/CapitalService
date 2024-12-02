@@ -10,7 +10,7 @@ PHP / Symfony
 
 ## Instalacja
 ```bash
-  composer insatll
+  composer install
 ```
 
 ## JWT
@@ -53,15 +53,15 @@ Na start dostępny jest użytkownik administracyjny:
 ### 1. Logowanie(pobranie tokenu JWT)
 
 ```bash
-  POST /api/calculation
+  POST /api/login
 ```
 
 #### Parametr body
 
 ```bash
   {
-    'login': 'admin',
-    'password': 'admin'
+    "login": "admin",
+    "password": "admin"
   }
 ```
 
