@@ -50,7 +50,29 @@ Na start dostępny jest użytkownik administracyjny:
 
 ## API
 
-### 1. Kalkulacja
+### 1. Logowanie(pobranie tokenu JWT)
+
+```bash
+  POST /api/calculation
+```
+
+#### Parametr body
+
+```bash
+  {
+    'login': 'admin',
+    'password': 'admin'
+  }
+```
+
+#### Odpowiedzi błędów
+
+| Kod | Opis                |
+| :-------- | :------------------------- |
+| `400` | Brak parametru poświadczenia |
+| `401` | Nieprawidłowe poświadczenie |
+
+### 2. Kalkulacja
 
 ```bash
   POST /api/calculation
@@ -69,7 +91,7 @@ Na start dostępny jest użytkownik administracyjny:
 | :-------- | :------------------------- |
 | `400` | Nieprawidłowa wartość amount lub installments |
 
-### 2. Wykluczenie Obliczenia
+### 3. Wykluczenie Obliczenia
 
 ```bash
   PUT /api/exclude
@@ -95,9 +117,9 @@ Na start dostępny jest użytkownik administracyjny:
 | `404` | Obliczenie o podanym `id` nie zostało znalezione |
 | `401` | Brak lub nieprawidłowy token JWT |
 
-### 3. Pobierz ostatnie 4 obliczenia
+### 4. Pobierz ostatnie 4 obliczenia
 
-```bash
+```http
   GET /api/calculations
 ```
 
@@ -120,3 +142,4 @@ Na start dostępny jest użytkownik administracyjny:
 | `400` | Brak parametru `id` |
 | `404` | Obliczenie o podanym `id` nie zostało znalezione |
 | `401` | Brak lub nieprawidłowy token JWT |
+
