@@ -71,6 +71,7 @@ Na start dostępny jest użytkownik administracyjny:
 | :-------- | :------------------------- |
 | `400` | Brak parametru poświadczenia |
 | `401` | Nieprawidłowe poświadczenie |
+| `429` | Przekroczona liczba zapytań. Max 20 na minutę |
 
 ### 2. Kalkulacja
 
@@ -90,6 +91,7 @@ Na start dostępny jest użytkownik administracyjny:
 | Kod | Opis                |
 | :-------- | :------------------------- |
 | `400` | Nieprawidłowa wartość amount lub installments |
+| `429` | Przekroczona liczba zapytań. Max 20 na minutę |
 
 ### 3. Wykluczenie Obliczenia
 
@@ -116,6 +118,7 @@ Na start dostępny jest użytkownik administracyjny:
 | `400` | Brak parametru `id` |
 | `404` | Obliczenie o podanym `id` nie zostało znalezione |
 | `401` | Brak lub nieprawidłowy token JWT |
+| `429` | Przekroczona liczba zapytań. Max 20 na minutę |
 
 ### 4. Pobierz ostatnie 4 obliczenia
 
@@ -142,4 +145,5 @@ Na start dostępny jest użytkownik administracyjny:
 | `400` | Brak parametru `id` |
 | `404` | Obliczenie o podanym `id` nie zostało znalezione |
 | `401` | Brak lub nieprawidłowy token JWT |
+| `429` | Przekroczona liczba zapytań. Max 20 na minutę |
 
