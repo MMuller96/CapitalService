@@ -73,7 +73,7 @@ class ApiController extends AbstractController
         return new JsonResponse(['message' => 'Calculation nr.' . $id . ' excluded succesfully']);
     }
 
-    #[Route('/api/bash', name: 'api_calculations', methods: ['GET'])]
+    #[Route('/api/calculations', name: 'api_calculations', methods: ['GET'])]
     public function calculations(Request $request): JsonResponse
     {
         $filter = $request->query->get('filter');
