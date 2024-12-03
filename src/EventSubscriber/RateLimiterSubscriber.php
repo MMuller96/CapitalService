@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\RateLimiter\RateLimiterFactory;
 
-class RateLimiterMiddleware implements EventSubscriberInterface
+class RateLimiterSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private HttpKernelInterface $httpKernel, 
